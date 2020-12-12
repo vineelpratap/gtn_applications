@@ -16,11 +16,14 @@ sh ../../../datasets/download/iamdb.sh <path_to_data> <email> <password>
 
 ## Pruned Transitions
 
-For preparing the list of letters and 1K wordpieces, use the following the script 
+For preparing the list of letters and 1K wordpieces, use the following the script replacing `<...>` with appropriate path
+```
+python ../../../datasets/iamdb.py --data_path <path_to_data> --save_text <...>/train.txt --save_tokens <...>/tokens.txt
+
+python ../../../scripts/make_wordpieces.py --dataset iamdb --data_dir <path_to_data> --text_file <...>/train.txt --output_prefix <...>/iamdb_1kwp --num_pieces 1000
 ```
 
-```
-
+List of letters will be located at `<...>/tokens.txt` and token, lexicon set for 1K wordpieces can be found at `<...>/iamdb_1kwp_tokens_1000.txt`, `<...>/iamdb_1kwp_lex_1000.txt`. 
 
 For creating pruned transitions graph (with backoff), use the following the script 
 ```
